@@ -1,0 +1,64 @@
+﻿<div class="column">
+    <div class="col-xs-1 center-block">
+        <center>
+            <div style="width: 70%">
+                <canvas id="PolarChartCanva"></canvas>
+            </div>
+        </center>
+    </div>
+</div>
+
+<script>
+    var chartColors = window.chartColors;
+    var color = Chart.helpers.color;
+    var config = {
+        data: {
+            datasets: [{
+                data: [
+                    @ViewBag.MARSTAT.Item1,
+					@ViewBag.MARSTAT.Item2,
+					@ViewBag.MARSTAT.Item3,
+                ],
+                backgroundColor: [
+                    color(chartColors.red).alpha(0.5).rgbString(),
+                    color(chartColors.green).alpha(0.5).rgbString(),
+                    color(chartColors.blue).alpha(0.5).rgbString(),
+                ],
+                label: 'Total Employees' // for legend
+            }],
+            labels: [
+                'Single',
+                'Divorced',
+                'Married'
+            ]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'right',
+                labels: {
+                    fontSize: 20
+                }
+            },
+            title: {
+                display: true,
+                text: 'Employee Marital Status Ratio',
+                fontSize: 25
+            },
+            scale: {
+                ticks: {
+                    beginAtZero: true
+                },
+                reverse: false
+            },
+            animation: {
+                animateRotate: false,
+                animateScale: true
+            }
+        }
+    };
+    window.onload = function () {
+        var ctx = document.getElementById('PolarChartCanva');
+        window.myPolarArea = Chart.PolarArea(ctx, config);
+    };
+</script>

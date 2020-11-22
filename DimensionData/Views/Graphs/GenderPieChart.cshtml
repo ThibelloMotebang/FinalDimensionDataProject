@@ -1,0 +1,54 @@
+﻿<div class="column">
+    <div class="col-xs-1 center-block">
+        <center>
+            <div style="width: 60%">
+                <canvas id="chart-area"></canvas>
+            </div>
+        </center>
+    </div>
+</div>
+
+<script>
+    var ctx = document.getElementById('chart-area').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [
+                    @ViewBag.FEM,
+                    @ViewBag.MA
+                ],
+                backgroundColor: [
+                    "pink", "#268ff7"
+                ],
+                label: 'Total Employees' // for legend
+            }],
+            labels: [
+                'Female',
+                'Male'
+            ]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Employee Gender Ratio',
+                fontSize: 25
+            },
+            legend: {
+                position: 'right',
+                labels: {
+                    fontSize: 20
+                }
+            },
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 25
+                }
+            }
+        }
+    });
+</script>

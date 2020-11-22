@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "TimeGraphs";
+}
+
+<h1 class="text-center" style="padding: 10px 0px 50px 0px">Real Time Graphical Data Presentation</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width: 50%">@await Html.PartialAsync("GenderPieChart")</td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width: 50%">@await Html.PartialAsync("MaritalPolarAreaChart")</td>
+        </tr>
+
+    </tbody>
+</table>

@@ -1,0 +1,257 @@
+﻿@model PaginatedList<DimensionData.Models.DataSet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a class="btn btn-outline-primary" style="padding: 2px 10px" asp-action="Create">Create New Employee</a>
+</p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search for data: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-dark" style="padding: 4px 12px" /> |
+            <a class="btn btn-dark" style="padding: 2px 10px" asp-action="Index">Back To Start of Full List</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["AgeSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Age</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["AttritionSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Attrition</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["BusinessTravelSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">BusinessTravel</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DailyRateSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">DailyRate</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DepartmentSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Department</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DistanceFromHomeSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">DistanceFromHome</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EducationSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Education</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EducationFieldSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">EducationField</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EmployeeCountSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">EmployeeCount</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EmployeeSatisfactionSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">EmployeeSatisfaction</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["GenderSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Gender</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["HourlyRateSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">HourlyRate</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["JobInvolvementSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">JobInvolvement</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["JobLevelSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">JobLevel</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["JobRoleSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">JobRole</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["JobSatisfactionSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">JobSatisfaction</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["MaritalStatusSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">MaritalStatus</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["MonthlyIncomeSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">MonthlyIncome</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["MonthlyRateSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">MonthlyRate</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NumCompaniesWorkedSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">NumCompaniesWorked</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["Over18SortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Over18</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PercentSalaryHikeSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">PercentSalaryHike</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PerformanceRatingSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">PerformanceRating</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["RelationshipSatisfactionSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">RelationshipSatisfaction</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["StandardWorkingHoursSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">StandardWorkingHours</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["StockOptionLevelSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">StockOptionLevel</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["TotalWorkingYearsSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">TotalWorkingYears</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["TrainingTimesLastYearSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">TrainingTimesLastYear</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["WorkLifeBalanceSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">WorkLifeBalance</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["YearsAtCompanySortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">YearsAtCompany</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["YearsInCurrentRoleSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">YearsInCurrentRole</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["YearsSinceLastPromotionSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">YearsSinceLastPromotion</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["YearsWithCurrentManagerSortParam"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">YearsWithCurrManager</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Attrition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessTravel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DailyRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DistanceFromHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Education)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EducationField)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnvironmentSatisfaction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HourlyRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobInvolvement)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobRole)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobSatisfaction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaritalStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthlyIncome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthlyRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumCompaniesWorked)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Over18)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OverTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PercentSalaryHike)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PerformanceRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RelationshipSatisfaction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StandardHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StockOptionLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalWorkingYears)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TrainingTimesLastYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkLifeBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearsAtCompany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearsInCurrentRole)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearsSinceLastPromotion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearsWithCurrManager)
+                </td>
+                <td>
+                    <a class="btn btn-primary" style="padding: 2px 10px" asp-action="Edit" asp-route-id="@item.EmployeeNumber">Edit</a> |
+                    <a class="btn btn-primary" style="padding: 2px 10px" asp-action="Details" asp-route-id="@item.EmployeeNumber">Details</a> |
+                    <a class="btn btn-danger" style="padding: 2px 10px" asp-action="Delete" asp-route-id="@item.EmployeeNumber">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
